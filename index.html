@@ -694,7 +694,7 @@ function downloadCV(){
     let count = localStorage.getItem("visitorCount");
 
     // Check if user already visited
-    if(!localStorage.getItem("visited")){
+    if(!localStorage.getItem("notvisited")){
 
         count = count ? parseInt(count) + 1 : 1;
 
