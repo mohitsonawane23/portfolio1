@@ -1,181 +1,661 @@
+```html id="m7k2qp"
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Personal Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
+<title>Mohit Sonawane | Professional Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#081120;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== Animated Background ===== */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00d9ff;
+    filter:blur(160px);
+    top:-150px;
+    right:-100px;
+    opacity:0.25;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#7b2cff;
+    filter:blur(150px);
+    bottom:-150px;
+    left:-100px;
+    opacity:0.2;
+    z-index:-1;
+}
+
+/* ===== Header ===== */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#00e0ff;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00e0ff;
+}
+
+/* ===== Hero Section ===== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 8% 80px;
+}
+
+.hero-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    width:100%;
+}
+
+/* Left Content */
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h3{
+    color:#00e0ff;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.hero-text h1{
+    font-size:70px;
+    line-height:1.1;
+}
+
+.hero-text h2{
+    font-size:32px;
+    margin:15px 0;
+    color:#cbd5e1;
+}
+
+.hero-text p{
+    max-width:650px;
+    color:#d1d5db;
+    line-height:1.8;
+    margin-top:20px;
+}
+
+/* Buttons */
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.primary-btn{
+    background:linear-gradient(45deg,#00e0ff,#006eff);
+    color:white;
+    box-shadow:0 10px 25px rgba(0,224,255,0.3);
+}
+
+.primary-btn:hover{
+    transform:translateY(-5px);
+}
+
+.secondary-btn{
+    background:transparent;
+    border:2px solid #00e0ff;
+    color:#00e0ff;
+}
+
+.secondary-btn:hover{
+    background:#00e0ff;
+    color:black;
+}
+
+/* ===== 3D Card ===== */
+
+.profile-card{
+    width:350px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    backdrop-filter:blur(12px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    transition:0.5s;
+}
+
+.profile-card:hover{
+    transform:rotateY(8deg) rotateX(8deg) scale(1.03);
+}
+
+.profile-card img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #00e0ff;
+}
+
+.profile-card h2{
+    margin-top:20px;
+    font-size:30px;
+}
+
+.profile-card p{
+    margin-top:10px;
+    color:#cbd5e1;
+}
+
+/* ===== Sections ===== */
+
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:60px;
+    color:#00e0ff;
+}
+
+/* ===== Skills ===== */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.skill-card{
+    background:rgba(255,255,255,0.05);
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    background:rgba(0,224,255,0.08);
+}
+
+.skill-card h3{
+    font-size:24px;
+}
+
+/* ===== Projects ===== */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:22px;
+    padding:30px;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.4s;
+    backdrop-filter:blur(12px);
+}
+
+.project-card:hover{
+    transform:translateY(-12px);
+}
+
+.project-card h3{
+    color:#00e0ff;
+    margin-bottom:15px;
+}
+
+.project-card p{
+    color:#d1d5db;
+    line-height:1.7;
+}
+
+.project-btn{
+    margin-top:20px;
+    padding:12px 22px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#00e0ff,#006eff);
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* ===== Contact ===== */
+
+.contact-box{
+    background:rgba(255,255,255,0.05);
+    padding:45px;
+    border-radius:25px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.contact-box p{
+    margin:12px 0;
+    color:#d1d5db;
+    font-size:18px;
+}
+
+/* ===== Footer ===== */
+
+footer{
+    background:#020817;
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+}
+
+/* ===== Mobile Responsive ===== */
+
+@media(max-width:1024px){
+
+    .hero-text h1{
+        font-size:55px;
     }
 
-    body{
-      background:#f4f4f4;
-      color:#333;
+    .hero-text h2{
+        font-size:28px;
     }
+
+}
+
+@media(max-width:900px){
 
     header{
-      background:#222;
-      color:white;
-      padding:20px;
-      text-align:center;
+        padding:15px 5%;
+        flex-direction:column;
+        gap:10px;
     }
 
     nav{
-      margin-top:10px;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
     }
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin:0 15px;
-      font-weight:bold;
+    .hero{
+        padding-top:160px;
     }
 
-    section{
-      padding:40px;
+    .hero-container{
+        flex-direction:column-reverse;
+        text-align:center;
     }
 
-    .container{
-      max-width:1000px;
-      margin:auto;
+    .hero-text h1{
+        font-size:48px;
     }
 
-    .about, .skills, .projects, .contact{
-      background:white;
-      margin-bottom:20px;
-      padding:25px;
-      border-radius:10px;
-      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    .hero-text h2{
+        font-size:24px;
     }
 
-    h2{
-      margin-bottom:15px;
-      color:#222;
+    .hero-text p{
+        margin:auto;
+        margin-top:20px;
     }
 
-    ul{
-      list-style:none;
+    .buttons{
+        justify-content:center;
     }
 
-    ul li{
-      padding:8px 0;
+}
+
+@media(max-width:600px){
+
+    .hero-text h1{
+        font-size:38px;
     }
 
-    .project-card{
-      background:#f9f9f9;
-      padding:15px;
-      margin-top:10px;
-      border-left:5px solid #007bff;
+    .hero-text h2{
+        font-size:20px;
     }
 
-    button{
-      background:#007bff;
-      color:white;
-      border:none;
-      padding:10px 15px;
-      border-radius:5px;
-      cursor:pointer;
-      margin-top:10px;
+    .hero-text h3{
+        font-size:18px;
     }
 
-    button:hover{
-      background:#0056b3;
+    .section-title{
+        font-size:34px;
     }
 
-    footer{
-      text-align:center;
-      background:#222;
-      color:white;
-      padding:15px;
+    .profile-card{
+        width:100%;
+        max-width:320px;
+        padding:25px;
     }
-  </style>
+
+    .profile-card img{
+        width:140px;
+        height:140px;
+    }
+
+    .contact-box{
+        padding:30px 20px;
+    }
+
+    .contact-box p{
+        font-size:16px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Mohit Sonawane</h1>
-    <p>Web Developer | BSc CS Student</p>
+<!-- ===== Header ===== -->
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
 
-  <section id="about">
-    <div class="container about">
-      <h2>About Me</h2>
-      <p>
-        I am a Computer Science student passionate about web development,
-        programming, and software technologies.
-      </p>
-    </div>
-  </section>
+<div class="logo">Mohit.</div>
 
-  <section id="skills">
-    <div class="container skills">
-      <h2>Technical Skills</h2>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
 
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Java</li>
-        <li>Python</li>
-        <li>MySQL</li>
-      </ul>
-    </div>
-  </section>
+</header>
 
-  <section id="projects">
-    <div class="container projects">
-      <h2>Projects</h2>
+<!-- ===== Hero Section ===== -->
 
-      <div class="project-card">
-        <h3>Personal Portfolio Website</h3>
+<section class="hero" id="home">
 
-        <p>
-          Built a responsive portfolio website to present projects,
-          technical skills, and contact details.
-        </p>
+<div class="hero-container">
 
-        <p>
-          Implemented structured layout and interactive elements using JavaScript.
-        </p>
+<div class="hero-text">
 
-        <p><b>Tech:</b> HTML, CSS, JavaScript</p>
+<h3>Hello, I'm</h3>
 
-        <button onclick="showMessage()">View Project</button>
-      </div>
-    </div>
-  </section>
+<h1>Mohit Sonawane</h1>
 
-  <section id="contact">
-    <div class="container contact">
-      <h2>Contact</h2>
+<h2>Full Stack Developer & BSc CS Student</h2>
 
-      <p>Email: mohitsonawane2435@gmail.com</p>
-      <p>Location: Nashik, Maharashtra</p>
-    </div>
-  </section>
+<p>
+Passionate about Web Development, Software Engineering,
+Cyber Security, AI Technologies, and Modern UI/UX Design.
+I create professional responsive websites and interactive
+digital experiences for desktop and mobile devices.
+</p>
 
-  <footer>
-    <p>© 2026 Mohit Sonawane | Portfolio Website</p>
-  </footer>
+<div class="buttons">
 
-  <script>
-    function showMessage(){
-      alert("Portfolio Project Opened Successfully!");
-    }
-  </script>
+<button class="btn primary-btn" onclick="openPortfolio()">
+View Portfolio
+</button>
+
+<button class="btn secondary-btn" onclick="downloadCV()">
+Download CV
+</button>
+
+</div>
+
+</div>
+
+<!-- 3D Profile Card -->
+
+<div class="profile-card">
+
+<img src="https://i.imgur.com/2DhmtJ4.png" alt="profile">
+
+<h2>Mohit Sonawane</h2>
+
+<p>Web Developer</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== About ===== -->
+
+<section id="about">
+
+<h1 class="section-title">About Me</h1>
+
+<div class="contact-box">
+
+<p>
+I am a Computer Science student with strong skills in
+HTML, CSS, JavaScript, Java, Python, and MySQL.
+I enjoy building responsive websites, software solutions,
+and modern user interfaces with professional design.
+</p>
+
+</div>
+
+</section>
+
+<!-- ===== Skills ===== -->
+
+<section id="skills">
+
+<h1 class="section-title">Technical Skills</h1>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+<h3>HTML5</h3>
+</div>
+
+<div class="skill-card">
+<h3>CSS3</h3>
+</div>
+
+<div class="skill-card">
+<h3>JavaScript</h3>
+</div>
+
+<div class="skill-card">
+<h3>Java</h3>
+</div>
+
+<div class="skill-card">
+<h3>Python</h3>
+</div>
+
+<div class="skill-card">
+<h3>MySQL</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== Projects ===== -->
+
+<section id="projects">
+
+<h1 class="section-title">Projects</h1>
+
+<div class="projects-grid">
+
+<div class="project-card">
+
+<h3>Portfolio Website</h3>
+
+<p>
+Developed a modern responsive portfolio website
+with 3D effects, animations, and mobile-first UI design.
+</p>
+
+<button class="project-btn" onclick="openProject()">
+Open Project
+</button>
+
+</div>
+
+<div class="project-card">
+
+<h3>GramSevak Smart Village App</h3>
+
+<p>
+AI-powered smart tourism and digital village management
+application with modern features and responsive UI.
+</p>
+
+<button class="project-btn" onclick="openProject2()">
+Open Project
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== Contact ===== -->
+
+<section id="contact">
+
+<h1 class="section-title">Contact</h1>
+
+<div class="contact-box">
+
+<p>Email: mohitsonawane2435@gmail.com</p>
+
+<p>Location: Nashik, Maharashtra</p>
+
+<p>Available for Freelancing & Internship Opportunities</p>
+
+</div>
+
+</section>
+
+<!-- ===== Footer ===== -->
+
+<footer>
+
+<p>© 2026 Mohit Sonawane | All Rights Reserved</p>
+
+</footer>
+
+<!-- ===== JavaScript ===== -->
+
+<script>
+
+function openPortfolio(){
+
+    window.open(
+        "https://github.com/",
+        "_blank"
+    );
+
+}
+
+function openProject(){
+
+    window.open(
+        "https://github.com/",
+        "_blank"
+    );
+
+}
+
+function openProject2(){
+
+    window.open(
+        "https://github.com/",
+        "_blank"
+    );
+
+}
+
+function downloadCV(){
+
+    alert("CV Download Started!");
+
+}
+
+</script>
 
 </body>
 </html>
+```
