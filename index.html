@@ -679,33 +679,18 @@ function downloadCV(){
 
 </script>
 
-    <!-- Visitor Counter -->
-
-<div class="visitor-counter">
-
-    👁️ Visitors:
-    
-</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 
 <script>
+window.dataLayer = window.dataLayer || [];
 
-    // Get current count
-    let count = localStorage.getItem("visitorCount");
+function gtag(){
+dataLayer.push(arguments);
+}
 
-    // Check if user already visited
-    if(!localStorage.getItem("visited")){
+gtag('js', new Date());
 
-        count = count ? parseInt(count) + 1 : 1;
-
-        localStorage.setItem("visitorCount", count);
-
-        localStorage.setItem("visited", "true");
-    }
-
-    // Display count
-    document.getElementById("visitor-count").innerText =
-    localStorage.getItem("visitorCount");
-
+gtag('config', 'G-XXXXXXXXXX');
 </script>
    
 </body>  
